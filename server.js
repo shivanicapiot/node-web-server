@@ -1,7 +1,8 @@
 const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
-var app = express();
+const app = express();
+const port = process.env.PORT || 5000
 
 hbs.registerPartials(__dirname + '/views/partials');
 hbs.registerHelper('getCurrentYear', () => {
@@ -41,6 +42,6 @@ app.get('/bad', (req, res) => {
         errorMessage: 'Unable to Handle Request'
     })
 })
-app.listen(5000, () => {
-    console.log("Server Listening on Port 5000")
+app.listen(port, () => {
+    console.log("Server Listening on Port: "  + port)
 });
